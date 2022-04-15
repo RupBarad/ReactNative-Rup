@@ -8,8 +8,10 @@ import {
   Image,
   TextInput,
   ScrollView,
+  ToastAndroid,
 } from 'react-native';
 import {launchImageLibrary} from 'react-native-image-picker';
+
 export default class ProfileScreen extends React.Component {
   constructor(props) {
     super(props);
@@ -17,12 +19,53 @@ export default class ProfileScreen extends React.Component {
       resourcePath: {},
       uri: '',
       firstName: '',
+      firstNameError: '',
       lastName: '',
+      lastNameError: '',
       mobileNo: '',
+      mobileNoError: '',
       address: '',
+      addressError: '',
     };
   }
-  submit = () => {};
+  formValidation = () => {
+    if (!this.state.firstName) {
+      this.setState({firstNameError: 'Please enter first name'});
+      return false;
+    } else {
+      this.setState({firstNameError: ''});
+    }
+
+    if (!this.state.lastName) {
+      this.setState({lastNameError: 'Please enter last name'});
+      return false;
+    } else {
+      this.setState({lastNameError: ''});
+    }
+    if (!this.state.mobileNo) {
+      this.setState({mobileNoError: 'Please enter mobile no'});
+      return false;
+    } else if (this.state.mobileNo.length < 10) {
+      this.setState({mobileNoError: 'Please enter valid mobile no'});
+      return false;
+    } else {
+      this.setState({mobileNoError: ''});
+    }
+    if (!this.state.address.length) {
+      this.setState({addressError: 'Please enter address'});
+      return false;
+    } else {
+      this.setState({addressError: ''});
+    }
+    console.log('success');
+    this.props.navigation.navigate('ProfileDetail', {
+      uri: this.state.uri,
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      mobileNo: this.state.mobileNo,
+      address: this.state.address,
+    });
+  };
   selectFile = () => {
     var options = {
       title: 'Select Image',
@@ -86,6 +129,9 @@ export default class ProfileScreen extends React.Component {
                 placeholderTextColor="#003f5c"
               />
             </View>
+            {this.state.firstNameError.length > 0 && (
+              <Text style={styles.errorMsg}>{this.state.firstNameError}</Text>
+            )}
             <View style={styles.inputView}>
               <TextInput
                 style={styles.TextInput}
@@ -94,6 +140,9 @@ export default class ProfileScreen extends React.Component {
                 placeholderTextColor="#003f5c"
               />
             </View>
+            {this.state.lastNameError.length > 0 && (
+              <Text style={styles.errorMsg}>{this.state.lastNameError}</Text>
+            )}
             <View style={styles.inputView}>
               <TextInput
                 style={styles.TextInput}
@@ -104,6 +153,9 @@ export default class ProfileScreen extends React.Component {
                 placeholderTextColor="#003f5c"
               />
             </View>
+            {this.state.mobileNoError.length > 0 && (
+              <Text style={styles.errorMsg}>{this.state.mobileNoError}</Text>
+            )}
             <View style={styles.inputViewAddress}>
               <TextInput
                 style={styles.TextInputAddress}
@@ -114,7 +166,12 @@ export default class ProfileScreen extends React.Component {
                 placeholderTextColor="#003f5c"
               />
             </View>
-            <TouchableOpacity onPress={this.submit} style={styles.button}>
+            {this.state.addressError.length > 0 && (
+              <Text style={styles.errorMsg}>{this.state.addressError}</Text>
+            )}
+            <TouchableOpacity
+              onPress={this.formValidation}
+              style={styles.button}>
               <Text style={styles.buttonText}>Submit</Text>
             </TouchableOpacity>
           </View>
@@ -157,8 +214,8 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     width: '90%',
     height: 45,
-    marginTop: 10,
-    margin: 20,
+    marginTop: 20,
+
     alignItems: 'center',
   },
   inputViewAddress: {
@@ -184,5 +241,13 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'flex-start',
     borderWidth: 1,
+  },
+  errorMsg: {
+    width: '90%',
+    marginHorizontal: 20,
+    alignItems: 'flex-start',
+    justifyContent: 'flex-start',
+    marginTop: 5,
+    color: '#dc3545',
   },
 });

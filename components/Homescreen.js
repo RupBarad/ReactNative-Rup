@@ -1,19 +1,17 @@
-import React, { Component } from 'react';
-import { Button, View, Text } from 'react-native';
-import { createStackNavigator, createAppContainer } from 'react-navigation';
+import React, {Component} from 'react';
+import {Button, View, Text} from 'react-native';
+import {createStackNavigator, createAppContainer} from 'react-navigation';
 
 export default class Homescreen extends Component {
   render() {
     return (
-      <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
+      <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Text>Home hi Screen</Text>
         <Button
           title="Go to About"
-          onPress={() => this.props.navigation.navigate('About'
-          )
-          }
+          onPress={() => this.props.navigation.navigate('About')}
         />
       </View>
-    )
+    );
   }
 }

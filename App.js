@@ -4,7 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import HomeScreen from './components/Homescreen'
 import AboutScreen from './components/Aboutscreen'
-import Detailscreen from './components/Detailscreen'
+import ProfileDetailscreen from './components/ProfileDetailscreen'
 import LoginScreen from './components/LoginScreen'
 import ChangePasswordScreen from './components/ChangePasswordScreen';
 import ProfileScreen from './components/ProfileScreen'
@@ -20,6 +20,7 @@ function App() {
         <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} />
         <Stack.Screen name="Profile" component={ProfileScreen} />
+        <Stack.Screen name="ProfileDetail" component={ProfileDetailscreen} />
         {/* <Stack.Screen name="About" component={AboutScreen} options={{ title: 'Overview' }} /> */}
         {/* <Stack.Screen name="Home" component={HomeScreen} />
         <Stack.Screen name="Detail" component={Detailscreen} /> */}

@@ -1,4 +1,6 @@
 import React, {useState} from 'react';
+import CustomText from './CustomText'
+import CustomText2 from './CustomText2'
 import {
   StyleSheet,
   Text,
@@ -11,36 +13,32 @@ import {
 } from 'react-native';
 
 const showToast = () => {
-  ToastAndroid.show("Login successfully !", ToastAndroid.LONG);
+  ToastAndroid.show('Login successfully !', ToastAndroid.LONG);
 };
 
 export default class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: '', // to store email
+      email: 'raju@gmail.com', // to store email
       emailErrorMessage: '', // email error message
-      password: '', // to store password
+      password: '1234566788', // to store password
       passwordErrorMessage: '', // password error message
     };
   }
   formValidation = async () => {
     this.setState({loading: true});
-    let errorFlag = false;
 
     // input validation
     if (this.state.email.length == 0) {
-      errorFlag = false;
       this.setState({emailErrorMessage: 'Please enter email.'});
-      this.props.navigation.navigate('Profile')
       return false;
     }
- 
+
     console.log(this.state.email);
-    let reg =  /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
+    let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w\w+)+$/;
     if (reg.test(this.state.email) === false) {
       console.log('Email is Not Correct');
-      errorFlag = false;
       this.setState({emailErrorMessage: 'incorrect email.'});
       return false;
     } else {
@@ -49,37 +47,44 @@ export default class App extends React.Component {
     }
 
     if (this.state.password.length == 0) {
-      errorFlag = false;
       this.setState({passwordErrorMessage: 'Please enter password'});
       return false;
-    } 
-     if (
-      this.state.password.length < 8 ||
-      this.state.password.length > 20
-    ) {
-      errorFlag = false;
+    }
+    if (this.state.password.length < 8 || this.state.password.length > 20) {
       this.setState({
         passwordErrorMessage: 'Password should be min 8 char and max 20 char',
       });
       return false;
     } else {
-      errorFlag = true;
       this.setState({passwordErrorMessage: ''});
     }
-    if (errorFlag) {
-      console.log('true');
-      showToast();
-      this.props.navigation.navigate('Profile')
-      /** Call Your API */
-    } else {
-      console.log('false');
-      this.setState({loading: false});
-    }
+
+    this.props.navigation.navigate('Profile');
+    /** Call Your API */
   };
+  customTextField() {
+    return (
+      <View style={styles.inputView}>
+        <TextInput
+          style={styles.TextInput}
+          placeholder="Email."
+          onChangeText={email => this.setState({email})}
+          placeholderTextColor="#003f5c"
+        />
+      </View>
+    );
+  }
+  onPress () {
+    //some function 
+    console.log('Text clicked');
+  }
   render() {
     return (
       <View style={styles.container}>
         <Image source={require('../assets/image.png')} />
+        < CustomText2 onPress={this.onPress} title='This text pass from login to custom text' />
+        < CustomText />
+        {this.customTextField()}
         <View style={styles.inputView}>
           <TextInput
             style={styles.TextInput}
@@ -109,11 +114,11 @@ export default class App extends React.Component {
           onPress={() => this.formValidation()}>
           <Text style={styles.loginText}>LOGIN</Text>
         </TouchableOpacity>
-        <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
+        {/* <View style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <TouchableOpacity>
             <Text style={styles.forgot_button}>Forgot Password?</Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
 
         <TouchableOpacity style={styles.loginBtn}>
           <Text style={styles.loginText}>Register</Text>
