@@ -8,13 +8,15 @@ import FlexBoxScreen from './src/flexbox/FlexBoxScreen'
 import AlignSelfScreen from './src/flexbox/AlignSelfScreen'
 import FlexWrapScreen from './src/flexbox/FlexWrapScreen'
 import FlexAbsoluteScreen from './src/flexbox/FlexAbsoluteScreen';
+import ReactComponentScreen from './src/react_component/ReactComponentScreen';
+
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="FlexDirection">
+      <Stack.Navigator initialRouteName="ReactComponent">
         <Stack.Screen
           name="FlexDirection"
           component={FlexDirectionScreen}
@@ -40,6 +42,7 @@ function App() {
         <Stack.Screen name="AlignSelf" component={AlignSelfScreen} />
         <Stack.Screen name="FlexWrap" component={FlexWrapScreen} />
         <Stack.Screen name="FlexAbsolute" component={FlexAbsoluteScreen} />
+        <Stack.Screen name="ReactComponent" component={ReactComponentScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
