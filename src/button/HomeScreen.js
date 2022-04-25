@@ -11,6 +11,9 @@ export default class HomeScreen extends Component {
   buttonInput = () => {
     this.props.navigation.navigate('InputTextScreen');
   };
+  buttonImageBg =()=>{
+      this.props.navigation.navigate('ImageBg');
+  };
 
   render() {
     return (
@@ -21,6 +24,9 @@ export default class HomeScreen extends Component {
           </View>
           <View style={styles.button}>
             <Button title="Input text demo" onPress={this.buttonInput} />
+          </View>
+          <View style={styles.button}>
+            <Button title="Image background" onPress={this.buttonImageBg} />
           </View>
         </View>
       </View>

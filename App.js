@@ -12,6 +12,7 @@ import ReactComponentScreen from './src/react_component/ReactComponentScreen';
 import ButtonScreen from './src/button/ButtonScreen';
 import HomeScreen from './src/button/HomeScreen';
 import InputTextScreen from './src/button/InputTextScreen';
+import ImageBgScreen from './src/button/ImageBgScreen'
 
 const Stack = createNativeStackNavigator();
 
@@ -46,6 +47,7 @@ function App() {
         <Stack.Screen name="ButtonScreen" component={ButtonScreen} />
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="InputTextScreen" component={InputTextScreen} />
+        <Stack.Screen name="ImageBg" component={ImageBgScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
