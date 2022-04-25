@@ -13,13 +13,14 @@ import ButtonScreen from './src/button/ButtonScreen';
 import HomeScreen from './src/button/HomeScreen';
 import InputTextScreen from './src/button/InputTextScreen';
 import ImageBgScreen from './src/button/ImageBgScreen'
+import AlertScreen from './src/alert/AlertScreen';
 
 const Stack = createNativeStackNavigator();
 
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="HomeScreen">
+      <Stack.Navigator initialRouteName="AlertScreen">
         <Stack.Screen
           name="FlexDirection"
           component={FlexDirectionScreen}
@@ -48,6 +49,7 @@ function App() {
         <Stack.Screen name="HomeScreen" component={HomeScreen} />
         <Stack.Screen name="InputTextScreen" component={InputTextScreen} />
         <Stack.Screen name="ImageBg" component={ImageBgScreen} />
+        <Stack.Screen name="AlertScreen" component={AlertScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
