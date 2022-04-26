@@ -1,0 +1,14 @@
+import {StyleSheet} from 'react-native';
+
+
+export const styles=StyleSheet.create({
+    container:{
+        flex:1,
+        backgroundColor:'gray',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    view_margin:{
+        margin:10
+    },
+})

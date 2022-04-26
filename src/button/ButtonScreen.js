@@ -54,7 +54,7 @@ export default class ButtonScreen extends Component {
           />
         </View>
         <View style={styles.touchable_button}>
-          <TouchableOpacity>
+          <TouchableOpacity activeOpacity={0}>
             <Text style={styles.touchable_button_text}>
               TouchableOpacity button
             </Text>

@@ -14,6 +14,16 @@ import HomeScreen from './src/button/HomeScreen';
 import InputTextScreen from './src/button/InputTextScreen';
 import ImageBgScreen from './src/button/ImageBgScreen'
 import AlertScreen from './src/alert/AlertScreen';
+import GetApiCallScreen from './src/api/GetApiCallScreen';
+import ApiHomeScreen from './src/api/ApiHomeScreen';
+import LifeCycleScreen from './src/react_component/LifeCycleScreen';
+import PostApiCallScreen from './src/api/PostApiCallScreen';
+import AxiosApiCallScreen from './src/api/AxiosApiCallScreen';
+
+
+
+
+
 
 const Stack = createNativeStackNavigator();
 
@@ -50,6 +60,11 @@ function App() {
         <Stack.Screen name="InputTextScreen" component={InputTextScreen} />
         <Stack.Screen name="ImageBg" component={ImageBgScreen} />
         <Stack.Screen name="AlertScreen" component={AlertScreen} />
+        <Stack.Screen name="GetApiCall" component={GetApiCallScreen} />
+        <Stack.Screen name="PostApiCall" component={PostApiCallScreen} />
+        <Stack.Screen name="ApiHome" component={ApiHomeScreen} />
+        <Stack.Screen name="LifeCycle" component={LifeCycleScreen} />
+        <Stack.Screen name="AxiosApiCall" component={AxiosApiCallScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
