@@ -19,8 +19,9 @@ import ApiHomeScreen from './src/api/ApiHomeScreen';
 import LifeCycleScreen from './src/react_component/LifeCycleScreen';
 import PostApiCallScreen from './src/api/PostApiCallScreen';
 import AxiosApiCallScreen from './src/api/AxiosApiCallScreen';
-
-
+import RefExampleScreen from './src/button/RefExampleScreen';
+import FlatListScreen from './src/listing/FlatListScreen';
+import LoginScreen from './src/other/LoginScreen';
 
 
 
@@ -30,7 +31,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="AlertScreen">
+      <Stack.Navigator initialRouteName="FlatListScreen">
         <Stack.Screen
           name="FlexDirection"
           component={FlexDirectionScreen}
@@ -50,6 +51,7 @@ function App() {
           }}
         />
 
+        <Stack.Screen name="Login" component={LoginScreen} />
         <Stack.Screen name="FlexBox" component={FlexBoxScreen} />
         <Stack.Screen name="AlignSelf" component={AlignSelfScreen} />
         <Stack.Screen name="FlexWrap" component={FlexWrapScreen} />
@@ -65,6 +67,8 @@ function App() {
         <Stack.Screen name="ApiHome" component={ApiHomeScreen} />
         <Stack.Screen name="LifeCycle" component={LifeCycleScreen} />
         <Stack.Screen name="AxiosApiCall" component={AxiosApiCallScreen} />
+        <Stack.Screen name="RefExample" component={RefExampleScreen} />
+        <Stack.Screen name="FlatListScreen" component={FlatListScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -49,6 +49,7 @@ export default class InputTextScreen extends Component {
 
             <View style={styles.input_container}>
               <TextInput
+              
                 style={styles.input3}
                 placeholder="Password"
                 secureTextEntry={true}></TextInput>

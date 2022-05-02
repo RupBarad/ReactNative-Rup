@@ -16,7 +16,7 @@ const showToast = () => {
   ToastAndroid.show('Login successfully !', ToastAndroid.LONG);
 };
 
-export default class App extends React.Component {
+export default class LoginScreen extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -81,7 +81,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Image source={require('../assets/image.png')} />
+        <Image source={require('../icons/atharva.png')} />
         < CustomText2 onPress={this.onPress} title='This text pass from login to custom text' />
         < CustomText />
         {this.customTextField()}

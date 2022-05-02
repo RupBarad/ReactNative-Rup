@@ -14,6 +14,9 @@ export default class HomeScreen extends Component {
   buttonImageBg =()=>{
       this.props.navigation.navigate('ImageBg');
   };
+  buttonRefs =()=>{
+    this.props.navigation.navigate('RefExample');
+};
 
   render() {
     return (
@@ -27,6 +30,9 @@ export default class HomeScreen extends Component {
           </View>
           <View style={styles.button}>
             <Button title="Image background" onPress={this.buttonImageBg} />
+          </View>
+          <View style={styles.button}>
+            <Button title="Ref example" onPress={this.buttonRefs} />
           </View>
         </View>
       </View>
