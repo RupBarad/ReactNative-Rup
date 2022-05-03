@@ -22,6 +22,8 @@ import AxiosApiCallScreen from './src/api/AxiosApiCallScreen';
 import RefExampleScreen from './src/button/RefExampleScreen';
 import FlatListScreen from './src/listing/FlatListScreen';
 import LoginScreen from './src/other/LoginScreen';
+import FlatListUsingApiScreen from './src/flatlistwithapi/FlatListUsingApiScreen';
+
 
 
 
@@ -69,6 +71,7 @@ function App() {
         <Stack.Screen name="AxiosApiCall" component={AxiosApiCallScreen} />
         <Stack.Screen name="RefExample" component={RefExampleScreen} />
         <Stack.Screen name="FlatListScreen" component={FlatListScreen} />
+        <Stack.Screen name="FlatListUsingApiScreen" component={FlatListUsingApiScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

@@ -1,6 +1,6 @@
-import React from 'react';
+import React ,{Component,useState} from 'react';
 import {View, Text, FlatList, TouchableOpacity} from 'react-native';
-import {Component, useState} from 'react/cjs/react.production.min';
+
 import {styles} from './FlatListScreen.styles';
 const data = [
   {id: '2', title: '2 -Login demo'},
@@ -12,14 +12,12 @@ const data = [
   {id: '8', title: '8 -Image'},
   {id: '9', title: '9 -Alert'},
   {id: '10', title: '10 -Api call'},
+  {id: '11', title: '11- Flatlist from api call'},
 ];
 
 export default class FlatListScreen extends Component {
-  
   divider = () => {
-    return (
-      <View style={styles.divider}></View>
-    );
+    return <View style={styles.divider}></View>;
   };
   itemClick = id => {
     console.log(id);
@@ -52,9 +50,19 @@ export default class FlatListScreen extends Component {
       case '10':
         this.props.navigation.navigate('ApiHome');
         break;
+      case '11':
+        this.props.navigation.navigate('FlatListUsingApiScreen');
+        break;
       default:
         break;
     }
+  };
+  EmptyListMessage = () => {
+    return (
+      <View style={styles.no_record_found}>
+        <Text>No record found</Text>
+      </View>
+    );
   };
   //  Item = ({item}) => (
   //   <TouchableOpacity style={styles.item} >
@@ -64,7 +72,9 @@ export default class FlatListScreen extends Component {
   //   </TouchableOpacity>
   // );
   render() {
+  
     const renderItem = ({item}) => {
+      
       return (
         <TouchableOpacity
           style={styles.item}
@@ -85,6 +95,7 @@ export default class FlatListScreen extends Component {
             keyExtractor={item => item.id}
             //  extraData={selectedId}
             ItemSeparatorComponent={this.divider}
+            ListEmptyComponent={this.EmptyListMessage}
           />
           {/* <FlatList
             data={data}

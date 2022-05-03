@@ -18,4 +18,9 @@ export const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'gray',
   },
+  no_record_found:{
+    flex:1,
+    alignContent:'center',
+    alignItems:'center',
+  },
 });
